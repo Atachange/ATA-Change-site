@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>At-A-Change, Inc. - Empowering Communities Through Life Literacy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: #ffffff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: #1a237e;
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 3px solid #b71c1c;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 300;
+            color: white;
+            text-decoration: none;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: white;
+            font-weight: 300;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        nav a:hover {
+            color: #f5f5f5;
+            border-bottom: 2px solid #b71c1c;
+            padding-bottom: 2px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(26, 35, 126, 0.85), rgba(183, 28, 28, 0.85)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            font-weight: 300;
+            letter-spacing: 2px;
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+            color: #f5f5f5;
+            font-style: italic;
+        }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            margin-bottom: 2.5rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        .cta-button {
+            background: #b71c1c;
+            color: white;
+            padding: 1rem 2.5rem;
+            border: 2px solid #b71c1c;
+            border-radius: 0;
+            font-size: 0.95rem;
+            font-weight: 400;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin: 0 0.5rem;
+        }
+
+        .cta-button:hover {
+            background: transparent;
+            color: #b71c1c;
+            background: white;
+            transform: translateY(-2px);
+        }
+
+        .cta-button.secondary {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+        }
+
+        .cta-button.secondary:hover {
+            background: white;
+            color: #1a237e;
+        }
+
+        /* About Section */
+        .about-section {
+            background: #f8f9fa;
+            padding: 4rem 0;
+        }
+
+        .mission-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .mission-text h2 {
+            font-size: 2.2rem;
+            color: #1a237e;
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        .mission-text p {
+            font-size: 1.1rem;
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+        }
+
+        .mission-visual {
+            background: #1a237e;
+            padding: 2.5rem;
+            color: white;
+            text-align: center;
+            border-top: 4px solid #b71c1c;
+        }
+
+        .mission-visual h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        /* Services Section */
+        .services-section {
+            background: white;
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            font-weight: 300;
+            color: #1a237e;
+            letter-spacing: 1px;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            text-align: center;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border: 1px solid #e0e0e0;
+            transition: all 0.3s ease;
+            border-top: 3px solid #b71c1c;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(26, 35, 126, 0.1);
+            border-top-color: #1a237e;
+        }
+
+        .service-card h3 {
+            color: #1a237e;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+        }
+
+        .service-card p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+        }
+
+        .pricing {
+            background: #1a237e;
+            color: white;
+            padding: 0.4rem 1rem;
+            font-size: 0.85rem;
+            font-weight: 400;
+            display: inline-block;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .pricing-free {
+            background: #b71c1c;
+        }
+
+        /* Impact Section */
+        .impact-section {
+            background: #1a237e;
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2.5rem;
+        }
+
+        .stat-card {
+            padding: 1.5rem;
+            border-top: 3px solid #b71c1c;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 300;
+            color: white;
+            display: block;
+            margin-bottom: 0.5rem;
+            letter-spacing: 1px;
+        }
+
+        .stat-label {
+            font-size: 0.95rem;
+            color: #f5f5f5;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        /* Leadership Section */
+        .leadership-section {
+            background: #f8f9fa;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .leader-spotlight {
+            background: white;
+            padding: 2.5rem;
+            max-width: 700px;
+            margin: 2rem auto;
+            border-top: 4px solid #b71c1c;
+            border-bottom: 4px solid #1a237e;
+        }
+
+        .leader-name {
+            font-size: 1.6rem;
+            font-weight: 400;
+            margin-bottom: 0.5rem;
+            color: #1a237e;
+            letter-spacing: 1px;
+        }
+
+        .leader-title {
+            color: #b71c1c;
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: #1a237e;
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2.5rem;
+        }
+
+        .contact-card {
+            padding: 1.5rem;
+            border-top: 3px solid #b71c1c;
+            background: rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .contact-card:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-3px);
+        }
+
+        .contact-card h3 {
+            color: white;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            font-weight: 400;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .contact-card p {
+            color: #f5f5f5;
+            font-weight: 300;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+            
+            .mission-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 0.5rem;
+                align-items: center;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">At-A-Change</a>
+                <nav>
+                    <ul>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#services">Programs</a></li>
+                        <li><a href="#impact">Impact</a></li>
+                        <li><a href="#leadership">Leadership</a></li>
+                        <li><a href="#contact">Connect</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Empowering Communities Through Life Literacy</h1>
+                <div class="hero-subtitle">Building Bridges Through Education & Empowerment</div>
+                <p>At-A-Change, Inc. is a 501(c)(3) nonprofit dedicated to Life Literacy education - empowering citizens with knowledge of their everyday legal rights to build confidence and create positive change. Founded on principles of pure infinite love, we believe educated citizens serve our greatest and highest good.</p>
+                <div>
+                    <a href="#services" class="cta-button">Explore Programs</a>
+                    <a href="#contact" class="cta-button secondary">Partner With Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="mission-content">
+                <div class="mission-text">
+                    <h2>Our Mission</h2>
+                    <p>At-A-Change, Inc. serves as a comprehensive resource hub for Life Literacy education, focusing on empowering citizens with knowledge of their everyday legal rights.</p>
+                    <p>We enable individuals to navigate our world with confidence, rooted in the belief that educated citizens serve our greatest and highest good. Everything we do is founded on principles of pure infinite love.</p>
+                </div>
+                <div class="mission-visual">
+                    <h3>Life Literacy</h3>
+                    <p style="font-size: 1rem; line-height: 1.6; font-weight: 300;">Knowledge + Understanding + Confidence = Empowerment</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="services-section">
+        <div class="container">
+            <h2 class="section-title">Programs & Services</h2>
+            <p class="section-subtitle">Comprehensive education and development programs designed to empower individuals and strengthen communities</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Life Literacy Education</h3>
+                    <p>Empowering citizens with knowledge of their everyday legal rights, building confidence to navigate life's challenges with understanding and purpose.</p>
+                    <div class="pricing pricing-free">Free Workshops</div>
+                    <div class="pricing" style="margin-left: 0.5rem;">Coaching: $75-150/session</div>
+                </div>
+
+                <div class="service-card">
+                    <h3>Financial Literacy Education</h3>
+                    <p>Comprehensive credit counseling, debt management, and wealth-building strategies that honor each individual's journey toward financial freedom.</p>
+                    <div class="pricing pricing-free">Sliding Scale</div>
+                    <div class="pricing" style="margin-left: 0.5rem;">$50-125/hour</div>
+                </div>
+
+                <div class="service-card">
+                    <h3>Business Development</h3>
+                    <p>Small business coaching, strategic planning, and entrepreneurship support for emerging and established businesses.</p>
+                    <div class="pricing">Consulting: $100-200/hour</div>
+                </div>
+
+                <div class="service-card">
+                    <h3>Diversity & Inclusion Training</h3>
+                    <p>Corporate training programs and cultural competency development for organizations committed to inclusive excellence.</p>
+                    <div class="pricing">Corporate: $2,500-5,000/day</div>
+                </div>
+
+                <div class="service-card">
+                    <h3>Legal & Compliance Education</h3>
+                    <p>Regulatory compliance training, gaming law education, and anti-money laundering awareness programs.</p>
+                    <div class="pricing">Training: $1,500-3,500/session</div>
+                </div>
+
+                <div class="service-card">
+                    <h3>Leadership Development</h3>
+                    <p>Executive coaching, team building, and succession planning for organizations and emerging leaders.</p>
+                    <div class="pricing">Executive Coaching: $150-300/hour</div>
+                </div>
+
+                <div class="service-card">
+                    <h3>Community Outreach</h3>
+                    <p>Workshops, webinars, and educational panels designed to strengthen community connections and knowledge sharing.</p>
+                    <div class="pricing pricing-free">Free Events</div>
+                    <div class="pricing" style="margin-left: 0.5rem;">Custom Programs Available</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="impact" class="impact-section">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">Transforming Lives, Building Futures</h2>
+            <p class="section-subtitle" style="color: #f5f5f5;">Our commitment to Life Literacy education creates lasting change in communities across Nevada and beyond</p>
+            
+            <div class="impact-grid">
+                <div class="stat-card">
+                    <span class="stat-number">400+</span>
+                    <p class="stat-label">Lives Transformed</p>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">$600K+</span>
+                    <p class="stat-label">Debt Resolved</p>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">15+</span>
+                    <p class="stat-label">Years of Service</p>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">100%</span>
+                    <p class="stat-label">Commitment to Excellence</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="leadership" class="leadership-section">
+        <div class="container">
+            <h2 class="section-title">Leadership</h2>
+            <p class="section-subtitle">Leading with purpose, heart, and expertise</p>
+            
+            <div class="leader-spotlight">
+                <h3 class="leader-name">Alannah T. Ariel, J.D., LL.M</h3>
+                <p class="leader-title">Founder & Executive Director</p>
+                <p style="font-size: 1rem; line-height: 1.7; font-weight: 300; color: #555;">Learning development professional with law degree and extensive experience in financial literacy education, business development, and diversity training. Specialized in compliance and cross-cultural team development. Board member of Latin Chamber of Commerce, committed to creating sustainable, impactful programs that empower citizens through Life Literacy education founded on principles of pure infinite love.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Donor Recognition Section -->
+    <section class="donors-section" style="background: white; padding: 3rem 0; border-top: 1px solid #e0e0e0;">
+        <div class="container">
+            <h2 style="font-size: 1.8rem; text-align: center; margin-bottom: 1rem; font-weight: 300; color: #1a237e; letter-spacing: 1px;">Our Valued Partners</h2>
+            <p style="text-align: center; font-size: 1rem; color: #666; margin-bottom: 2.5rem; font-weight: 300;">We are grateful for the generous support of our partners who make our mission possible</p>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; align-items: center; justify-items: center;">
+                <div style="padding: 1.5rem; text-align: center; transition: all 0.3s ease; border: 1px solid transparent;" onmouseover="this.style.borderColor='#1a237e'; this.style.transform='translateY(-3px)'" onmouseout="this.style.borderColor='transparent'; this.style.transform='translateY(0)'">
+                    <div style="font-size: 2.5rem; margin-bottom: 0.5rem; color: #1a237e;">🖥️</div>
+                    <h3 style="font-size: 1.1rem; color: #1a237e; font-weight: 400; letter-spacing: 1px;">MICROSOFT</h3>
+                    <p style="font-size: 0.85rem; color: #666; margin-top: 0.3rem;">Technology Partner</p>
+                </div>
+                
+                <div style="padding: 1.5rem; text-align: center; transition: all 0.3s ease; border: 1px solid transparent;" onmouseover="this.style.borderColor='#1a237e'; this.style.transform='translateY(-3px)'" onmouseout="this.style.borderColor='transparent'; this.style.transform='translateY(0)'">
+                    <div style="font-size: 2.5rem; margin-bottom: 0.5rem; color: #b71c1c;">🌐</div>
+                    <h3 style="font-size: 1.1rem; color: #1a237e; font-weight: 400; letter-spacing: 1px;">GOOGLE</h3>
+                    <p style="font-size: 0.85rem; color: #666; margin-top: 0.3rem;">Innovation Partner</p>
+                </div>
+                
+                <div style="padding: 1.5rem; text-align: center; transition: all 0.3s ease; border: 1px solid transparent;" onmouseover="this.style.borderColor='#1a237e'; this.style.transform='translateY(-3px)'" onmouseout="this.style.borderColor='transparent'; this.style.transform='translateY(0)'">
+                    <div style="font-size: 2.5rem; margin-bottom: 0.5rem; color: #1a237e;">💻</div>
+                    <h3 style="font-size: 1.1rem; color: #1a237e; font-weight: 400; letter-spacing: 1px;">TECHSOUP</h3>
+                    <p style="font-size: 0.85rem; color: #666; margin-top: 0.3rem;">Nonprofit Technology</p>
+                </div>
+                
+                <div style="padding: 1.5rem; text-align: center; transition: all 0.3s ease; border: 1px solid transparent;" onmouseover="this.style.borderColor='#1a237e'; this.style.transform='translateY(-3px)'" onmouseout="this.style.borderColor='transparent'; this.style.transform='translateY(0)'">
+                    <div style="font-size: 2.5rem; margin-bottom: 0.5rem; color: #b71c1c;">🎯</div>
+                    <h3 style="font-size: 1.1rem; color: #1a237e; font-weight: 400; letter-spacing: 1px;">ATA INTERNATIONAL</h3>
+                    <p style="font-size: 0.85rem; color: #666; margin-top: 0.3rem;">Gaming Consultants</p>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 2rem;">
+                <p style="font-size: 0.9rem; color: #666; font-style: italic; font-weight: 300;">Interested in partnering with us? <a href="#contact" style="color: #b71c1c; text-decoration: none; font-weight: 400;">Contact us today</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Donation Section -->
+    <section class="donation-section" style="background: linear-gradient(135deg, #b71c1c, #8b1014); color: white; padding: 4rem 0; text-align: center;">
+        <div class="container">
+            <h2 style="font-size: 2.2rem; margin-bottom: 1rem; font-weight: 300; letter-spacing: 1px; color: white;">Support Our Mission</h2>
+            <p style="font-size: 1.1rem; margin-bottom: 3rem; max-width: 600px; margin-left: auto; margin-right: auto; line-height: 1.7; font-weight: 300;">Your generous support enables us to empower more lives through Life Literacy education. Every contribution makes a meaningful difference in our community.</p>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-bottom: 3rem; max-width: 900px; margin-left: auto; margin-right: auto;">
+                <div class="donation-card" style="background: rgba(255, 255, 255, 0.1); padding: 1.8rem 1.2rem; border: 1px solid rgba(255, 255, 255, 0.2); transition: all 0.3s ease; cursor: pointer;" onmouseover="this.style.background='rgba(255, 255, 255, 0.15)'; this.style.transform='translateY(-3px)'" onmouseout="this.style.background='rgba(255, 255, 255, 0.1)'; this.style.transform='translateY(0)'">
+                    <div style="font-size: 2rem; font-weight: 300; margin-bottom: 0.5rem;">$25</div>
+                    <div style="font-size: 0.9rem; font-weight: 400; letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 0.8rem; color: #f5f5f5;">Community Supporter</div>
+                    <p style="font-size: 0.85rem; font-weight: 300; line-height: 1.5;">Supports one workshop attendee with materials and resources</p>
+                </div>
+                
+                <div class="donation-card" style="background: rgba(255, 255, 255, 0.15); padding: 1.8rem 1.2rem; border: 2px solid rgba(255, 255, 255, 0.3); transition: all 0.3s ease; cursor: pointer; position: relative;" onmouseover="this.style.background='rgba(255, 255, 255, 0.2)'; this.style.transform='translateY(-3px)'" onmouseout="this.style.background='rgba(255, 255, 255, 0.15)'; this.style.transform='translateY(0)'">
+                    <div style="position: absolute; top: -8px; right: 10px; background: #1a237e; color: white; padding: 0.3rem 0.8rem; font-size: 0.7rem; letter-spacing: 0.5px; text-transform: uppercase;">Most Popular</div>
+                    <div style="font-size: 2rem; font-weight: 300; margin-bottom: 0.5rem;">$100</div>
+                    <div style="font-size: 0.9rem; font-weight: 400; letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 0.8rem; color: #f5f5f5;">Empowerment Champion</div>
+                    <p style="font-size: 0.85rem; font-weight: 300; line-height: 1.5;">Funds one complete coaching session for someone in need</p>
+                </div>
+                
+                <div class="donation-card" style="background: rgba(255, 255, 255, 0.1); padding: 1.8rem 1.2rem; border: 1px solid rgba(255, 255, 255, 0.2); transition: all 0.3s ease; cursor: pointer;" onmouseover="this.style.background='rgba(255, 255, 255, 0.15)'; this.style.transform='translateY(-3px)'" onmouseout="this.style.background='rgba(255, 255, 255, 0.1)'; this.style.transform='translateY(0)'">
+                    <div style="font-size: 2rem; font-weight: 300; margin-bottom: 0.5rem;">$250</div>
+                    <div style="font-size: 0.9rem; font-weight: 400; letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 0.8rem; color: #f5f5f5;">Mission Partner</div>
+                    <p style="font-size: 0.85rem; font-weight: 300; line-height: 1.5;">Sponsors a complete community workshop with refreshments</p>
+                </div>
+            </div>
+
+            <div style="margin-bottom: 2.5rem;">
+                <div style="display: inline-block; margin: 0 1rem 1rem;">
+                    <input type="number" placeholder="Other Amount" style="padding: 0.8rem 1.2rem; border: 2px solid rgba(255, 255, 255, 0.3); background: rgba(255, 255, 255, 0.1); color: white; border-radius: 0; font-size: 1rem; width: 150px; text-align: center;" />
+                </div>
+                <div style="margin-top: 1rem;">
+                    <label style="font-size: 0.9rem; font-weight: 300; display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
+                        <input type="checkbox" style="transform: scale(1.2);"/>
+                        Make this a monthly gift
+                    </label>
+                </div>
+            </div>
+
+            <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+                <a href="#" class="cta-button" style="background: white; color: #b71c1c; border: 2px solid white; font-size: 1rem; padding: 0.9rem 2rem;">Donate Online</a>
+                <a href="#contact" class="cta-button secondary" style="background: transparent; color: white; border: 2px solid white; font-size: 1rem; padding: 0.9rem 2rem;">Other Ways to Give</a>
+            </div>
+
+            <div style="margin-top: 2rem; border-top: 1px solid rgba(255, 255, 255, 0.2); padding-top: 1.5rem;">
+                <p style="font-size: 0.85rem; color: #f5f5f5; font-weight: 300; line-height: 1.6;">At-A-Change, Inc. is a 501(c)(3) tax-exempt organization. Your donation is tax-deductible to the full extent allowed by law. <br/>Tax ID: [EIN Number] | All donations support Life Literacy education programs.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">Connect With Us</h2>
+            <p style="font-size: 1.1rem; margin-bottom: 2rem; font-weight: 300;">Ready to partner with At-A-Change or learn more about our Life Literacy programs?</p>
+            
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <h3>Email</h3>
+                    <p>admin@atachange.org</p>
+                </div>
+                <div class="contact-card">
+                    <h3>Phone</h3>
+                    <p>702-721-7755</p>
+                </div>
+                <div class="contact-card">
+                    <h3>Location</h3>
+                    <p>Las Vegas, Nevada</p>
+                </div>
+                <div class="contact-card">
+                    <h3>LinkedIn</h3>
+                    <p>linkedin.com/in/atachange</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 At-A-Change, Inc. All rights reserved.</p>
+            <p style="margin-top: 0.5rem; color: #b71c1c; font-size: 0.9rem;">501(c)(3) Nonprofit Organization | Founded on Principles of Pure Infinite Love</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
